@@ -8,6 +8,9 @@ public class EjemploStreams {
         List<String> nombres = Arrays.asList("Brenda", "Luis", "Maria Fernanda", "Eric", "Genesis");
         nombres.stream()
             .sorted()
+            .limit(2)
+            .filter(n -> n.startsWith("B"))
+            .map(n -> n.toUpperCase())
             .forEach(System.out::println);
     }
 }
