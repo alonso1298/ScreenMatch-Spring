@@ -25,10 +25,11 @@ public class Principal {
 		String json = consumoAPI.obtenerDatos(URL_BASE + nombreSerie.replace(" ", "+") + API_KEY);
 		DatosSerie datos = conversor.obtenerDatos(json, DatosSerie.class);
 		System.out.println(datos);
+        
         // Busca los datos de todas las temporadas
         List<DatosTemporadas> temporadas = new ArrayList<>();
 		for (int i = 1; i <= datos.totalTemporadas(); i++) {
-			json = consumoAPI.obtenerDatos(URL_BASE + nombreSerie.replace(" ", "+") + "$Season=" + i + API_KEY);
+			json = consumoAPI.obtenerDatos(URL_BASE + nombreSerie.replace(" ", "+") + "&Season=" + i + API_KEY);
 			DatosTemporadas datosTemporadas = conversor.obtenerDatos(json, DatosTemporadas.class);
 			temporadas.add(datosTemporadas);
 		}
