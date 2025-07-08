@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import com.aluracursos.screenmatch.model.DatosEpisodio;
 import com.aluracursos.screenmatch.model.DatosSerie;
 import com.aluracursos.screenmatch.model.DatosTemporadas;
 import com.aluracursos.screenmatch.service.ConsumoAPI;
@@ -25,7 +26,7 @@ public class Principal {
 		String json = consumoAPI.obtenerDatos(URL_BASE + nombreSerie.replace(" ", "+") + API_KEY);
 		DatosSerie datos = conversor.obtenerDatos(json, DatosSerie.class);
 		System.out.println(datos);
-        
+
         // Busca los datos de todas las temporadas
         List<DatosTemporadas> temporadas = new ArrayList<>();
 		for (int i = 1; i <= datos.totalTemporadas(); i++) {
@@ -33,7 +34,15 @@ public class Principal {
 			DatosTemporadas datosTemporadas = conversor.obtenerDatos(json, DatosTemporadas.class);
 			temporadas.add(datosTemporadas);
 		}
-        temporadas.forEach(System.out::println);
+        // temporadas.forEach(System.out::println);
+
+        // Mostrar solo el titulo de los episodios para las temporadas
+        for (int i = 0; i < datos.totalTemporadas(); i++) {
+            List<DatosEpisodio> episodiosTemporada = temporadas.get(i).episodios();
+            for (int j = 0; j < episodiosTemporada.size(); j++) {
+                System.out.println(episodiosTemporada.get(j).titulo());
+            }
+        }
     }
 
 }
