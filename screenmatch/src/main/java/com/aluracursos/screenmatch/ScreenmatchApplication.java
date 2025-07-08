@@ -4,10 +4,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.aluracursos.screenmatch.model.DatosEpisodio;
-import com.aluracursos.screenmatch.model.DatosSerie;
-import com.aluracursos.screenmatch.service.ConsumoAPI;
-import com.aluracursos.screenmatch.service.ConvierteDatos;
+import com.aluracursos.screenmatch.principal.Principal;
 
 @SpringBootApplication
 public class ScreenmatchApplication implements CommandLineRunner{
@@ -18,15 +15,7 @@ public class ScreenmatchApplication implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-		ConsumoAPI consumoAPI = new ConsumoAPI();
-		String json = consumoAPI.obtenerDatos("http://www.omdbapi.com/?t=malcolm+in+the+middle&apikey=517489d5");
-		// String json = consumoAPI.obtenerDatos("http://www.omdbapi.com/?t=malcolm+in+the+middle&apikey=517489d5");
-		// System.out.println(json);
-		ConvierteDatos conversor = new ConvierteDatos();
-		DatosSerie datos = conversor.obtenerDatos(json, DatosSerie.class);
-		System.out.println(datos);
-		json = consumoAPI.obtenerDatos("http://www.omdbapi.com/?t=malcolm+in+the+middle&Season=1&episode=1&apikey=517489d5");
-		DatosEpisodio episodios = conversor.obtenerDatos(json, DatosEpisodio.class);
-		System.out.println(episodios);
+		Principal principal = new Principal();
+		principal.muestraElMenu();
 	}
 }

@@ -8,7 +8,9 @@ import com.aluracursos.screenmatch.model.DatosSerie;
 import com.aluracursos.screenmatch.model.DatosTemporadas;
 import com.aluracursos.screenmatch.service.ConsumoAPI;
 import com.aluracursos.screenmatch.service.ConvierteDatos;
+import org.springframework.stereotype.Component;
 
+@Component
 public class Principal {
     private Scanner teclado = new Scanner(System.in);
     private ConsumoAPI consumoAPI = new ConsumoAPI();
@@ -18,6 +20,7 @@ public class Principal {
 
     public void muestraElMenu(){
         System.out.println("Porfavor escribe el nombre de la serie que deseas buscar");
+        // Busca los datos generales de las series
         String nombreSerie = teclado.nextLine();
 		String json = consumoAPI.obtenerDatos(URL_BASE + nombreSerie.replace(" ", "+") + API_KEY);
 		DatosSerie datos = conversor.obtenerDatos(json, DatosSerie.class);
