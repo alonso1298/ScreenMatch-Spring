@@ -86,8 +86,8 @@ public class Principal {
             .filter(e -> e.getFechaDeLanzamiento() != null && e.getFechaDeLanzamiento().isAfter(fechaBusqueda))
             .forEach(e -> System.out.println(
                 "Temporada " + e.getTemporada() + 
-                    "Episodio " + e.getTitulo() +
-                    "Fecha de lanzamiento " + e.getFechaDeLanzamiento().format(dtf)
+                    " Episodio " + e.getTitulo() +
+                    " Fecha de lanzamiento " + e.getFechaDeLanzamiento().format(dtf)
             ));
     }
 }
