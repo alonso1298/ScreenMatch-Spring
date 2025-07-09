@@ -62,7 +62,11 @@ public class Principal {
         System.out.println("Top 5 episodios");
         datosEpisodios.stream()
             .filter(e -> !e.evaluacion().equalsIgnoreCase("N/A"))
+            .peek(e -> System.out.println("Primer filtro (N/A)" + e))
             .sorted(Comparator.comparing(DatosEpisodio::evaluacion).reversed())
+            .peek(e -> System.out.println("Segundo filtro oredenación (M>m)" + e))
+            .map(e -> e.titulo().toUpperCase())
+            .peek(e -> System.out.println("Tercer filtro MAYUSCULAS (m>M)" + e))
             .limit(5)
             .forEach(System.out::println);
 
