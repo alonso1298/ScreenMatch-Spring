@@ -1,5 +1,6 @@
 package com.aluracursos.screenmatch.principal;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -12,6 +13,9 @@ import com.aluracursos.screenmatch.model.DatosTemporadas;
 import com.aluracursos.screenmatch.model.Episodio;
 import com.aluracursos.screenmatch.service.ConsumoAPI;
 import com.aluracursos.screenmatch.service.ConvierteDatos;
+
+import ch.qos.logback.core.spi.ScanException;
+
 import org.springframework.stereotype.Component;
 
 @Component
@@ -70,5 +74,20 @@ public class Principal {
             .collect(Collectors.toList());
 
         episodios.forEach(System.out::println);
+
+        // Busqueda de episodios apartir de x año
+        System.out.println("Indica el año apartir del cual deseas ver los episodios");
+        int fecha = teclado.nextInt();
+        teclado.nextLine();
+
+        LocalDate fechaBusqueda = LocalDate.of(fecha, 1, 1);
+
+        episodios.stream()
+            .filter(e -> e.getFechaDeLanzamiento() != null && e.getFechaDeLanzamiento().isAfter(fechaBusqueda))
+            .forEach(e -> System.out.println(
+                "Temporada " + e.getTemporada() + 
+                    "Episodio " + e.getTitulo() +
+                    "Fecha de lanzamiento " + e.getFechaDeLanzamiento()
+            ));
     }
 }
