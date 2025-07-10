@@ -5,6 +5,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
@@ -97,8 +98,14 @@ public class Principal {
         // Busca episodios por pedazo de titulo
         System.out.println("Por favor escriba el titulo del espisodio que desea ver: "); 
         String pedazoTitulo = teclado.nextLine();
-        episodios.stream()
+        Optional<Episodio> episodioBuscado = episodios.stream()
             .filter(e -> e.getTitulo().contains(pedazoTitulo))
             .findFirst();
+        if(episodioBuscado.isPresent()){
+            System.out.println(" Episodio encontrado");
+            System.out.println("Los datos son : " + episodioBuscado.get());
+        }else {
+            System.out.println("Episodio no encontrado");
+        }
     }
 }
