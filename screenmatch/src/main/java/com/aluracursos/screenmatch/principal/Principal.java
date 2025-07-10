@@ -93,5 +93,12 @@ public class Principal {
                     " Episodio " + e.getTitulo() +
                     " Fecha de lanzamiento " + e.getFechaDeLanzamiento().format(dtf)
             ));
+
+        // Busca episodios por pedazo de titulo
+        System.out.println("Por favor escriba el titulo del espisodio que desea ver: "); 
+        String pedazoTitulo = teclado.nextLine();
+        episodios.stream()
+            .filter(e -> e.getTitulo().contains(pedazoTitulo))
+            .findFirst();
     }
 }
