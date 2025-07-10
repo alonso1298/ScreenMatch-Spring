@@ -99,10 +99,10 @@ public class Principal {
         System.out.println("Por favor escriba el titulo del espisodio que desea ver: "); 
         String pedazoTitulo = teclado.nextLine();
         Optional<Episodio> episodioBuscado = episodios.stream()
-            .filter(e -> e.getTitulo().contains(pedazoTitulo))
+            .filter(e -> e.getTitulo().toUpperCase().contains(pedazoTitulo.toUpperCase()))
             .findFirst();
         if(episodioBuscado.isPresent()){
-            System.out.println(" Episodio encontrado");
+            System.out.println("Episodio encontrado");
             System.out.println("Los datos son : " + episodioBuscado.get());
         }else {
             System.out.println("Episodio no encontrado");
