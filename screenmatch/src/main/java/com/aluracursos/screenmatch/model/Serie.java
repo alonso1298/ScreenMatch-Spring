@@ -2,6 +2,8 @@ package com.aluracursos.screenmatch.model;
 
 import java.util.OptionalDouble;
 
+import com.aluracursos.screenmatch.service.ConsultaGemini;
+
 public class Serie {
     private String titulo;
     private Integer totalTemporadas; 
@@ -18,7 +20,7 @@ public class Serie {
         this.poster = datosSerie.poster();
         this.genero = Categoria.fromString(datosSerie.genero().split(",")[0].trim());
         this.actores = datosSerie.actores();
-        this.sinopsis = datosSerie.sinopsis();
+        this.sinopsis = ConsultaGemini.obtenerTraduccion(datosSerie.sinopsis());
     }
 
     public String getTitulo() {
