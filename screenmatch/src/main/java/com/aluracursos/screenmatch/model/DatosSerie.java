@@ -7,7 +7,11 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public record DatosSerie(
     @JsonAlias("Title") String titulo, // @JsonAlias("Title") espesifica que en la API viene como Title y solo permite leer 
     @JsonAlias("totalSeasons") Integer totalTemporadas, 
-    @JsonAlias("imdbRating") String evaluacion)
+    @JsonAlias("imdbRating") String evaluacion,
+    @JsonAlias("Genre") String genero,
+    @JsonAlias("Actors") String actores,
+    @JsonAlias("Plot") String sinopsis,
+    @JsonAlias("Poster") String poster)
     { 
 
 }
