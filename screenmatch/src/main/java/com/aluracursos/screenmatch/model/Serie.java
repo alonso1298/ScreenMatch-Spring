@@ -1,9 +1,11 @@
 package com.aluracursos.screenmatch.model;
 
 import java.util.OptionalDouble;
-
 import com.aluracursos.screenmatch.service.ConsultaGemini;
 
+import jakarta.persistence.Entity;
+
+@Entity
 public class Serie {
     private String titulo;
     private Integer totalTemporadas; 
