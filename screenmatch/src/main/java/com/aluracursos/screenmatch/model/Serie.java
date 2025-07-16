@@ -1,5 +1,6 @@
 package com.aluracursos.screenmatch.model;
 
+import java.util.List;
 import java.util.OptionalDouble;
 
 import com.aluracursos.screenmatch.service.ConsultaGemini;
@@ -12,6 +13,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 
 @Entity
 @Table(name = "series")
@@ -28,6 +30,8 @@ public class Serie {
     private Categoria genero;
     private String actores;
     private String sinopsis;
+    @Transient // Existe una lista de episodios pero no la vamos a usar
+    private List<Episodio> episodios;
 
     public Serie(DatosSerie datosSerie){
         this.titulo = datosSerie.titulo();
