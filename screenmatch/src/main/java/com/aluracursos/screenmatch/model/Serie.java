@@ -33,6 +33,8 @@ public class Serie {
     @Transient // Existe una lista de episodios pero no la vamos a usar
     private List<Episodio> episodios;
 
+    public Serie(){} // Tenemos que agregar un constructor manualmente por exigencia de JPA
+
     public Serie(DatosSerie datosSerie){
         this.titulo = datosSerie.titulo();
         this.totalTemporadas = datosSerie.totalTemporadas();

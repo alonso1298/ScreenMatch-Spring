@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 public class Principal {
     private Scanner teclado = new Scanner(System.in);
@@ -87,14 +86,11 @@ public class Principal {
         System.out.println(datos);
     }
     private void mostrarSeriesBuscadas() {
-        List<Serie> series = new ArrayList<>();
-        series = datosSeries.stream()
-            .map(d -> new Serie(d))
-            .collect(Collectors.toList());
+        List<Serie> series = repositorio.findAll();
 
-            series.stream()
-                .sorted(Comparator.comparing(Serie::getGenero))
-                .forEach(System.out::println);
+        series.stream()
+            .sorted(Comparator.comparing(Serie::getGenero))
+            .forEach(System.out::println);
     }
 
 
