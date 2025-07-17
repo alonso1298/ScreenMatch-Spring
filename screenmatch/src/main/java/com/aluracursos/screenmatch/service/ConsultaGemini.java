@@ -8,13 +8,21 @@ public class ConsultaGemini {
         String modelo = "gemini-2.0-flash-lite";
         String prompt = "Traduce el siguiente texto al español: " + texto;
 
-        Client cliente = new Client.Builder().apiKey("${GEMINI_KEY}").build();
+        // Obtener la variable de entorno 
+        String apiKey = System.getenv("GEMINI_KEY");
+
+        if (apiKey == null || apiKey.isEmpty()) {
+            System.err.println("ERROR: La variable de entorno GEMINI_KEY no está definida.");
+            return null;
+        }
+
+        Client cliente = new Client.Builder().apiKey(apiKey).build();
 
         try {
             GenerateContentResponse respuesta = cliente.models.generateContent(
                     modelo,
                     prompt,
-                    null // Parámetro para configuraciones adicionales
+                    null
             );
 
             if (!respuesta.text().isEmpty()) {
