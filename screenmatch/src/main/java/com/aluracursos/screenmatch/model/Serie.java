@@ -5,6 +5,7 @@ import java.util.OptionalDouble;
 
 import com.aluracursos.screenmatch.service.ConsultaGemini;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -30,7 +31,7 @@ public class Serie {
     private Categoria genero;
     private String actores;
     private String sinopsis;
-    @OneToMany(mappedBy = "serie")
+    @OneToMany(mappedBy = "serie", cascade = CascadeType.ALL)
     private List<Episodio> episodios;
 
     public Serie(){} // Tenemos que agregar un constructor manualmente por exigencia de JPA
