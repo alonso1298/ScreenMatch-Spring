@@ -115,13 +115,14 @@ public class Serie {
     }
 
     public void setEpisodios(List<Episodio> episodios) {
+        episodios.forEach(e -> e.setSerie(this));
         this.episodios = episodios;
     }
 
     @Override
     public String toString() {
         return "genero=" + genero + ", titulo=" + titulo + ", totalTemporadas=" + totalTemporadas + ", evaluacion=" + evaluacion
-                + ", poster=" + poster + ", actores=" + actores + ", sinopsis=" + sinopsis;
+                + ", poster=" + poster + ", actores=" + actores + ", sinopsis=" + sinopsis + ", episodios=" + episodios;
     }
 
 }
