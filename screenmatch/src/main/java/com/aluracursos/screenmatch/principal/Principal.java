@@ -17,7 +17,6 @@ public class Principal {
     private final String URL_BASE = "https://www.omdbapi.com/?t=";
     private final String API_KEY = "&apikey=517489d5";
     private ConvierteDatos conversor = new ConvierteDatos();
-    private List<DatosSerie> datosSeries = new ArrayList<>();
     private SerieRepository repositorio;
 
     public Principal(SerieRepository repository) {
