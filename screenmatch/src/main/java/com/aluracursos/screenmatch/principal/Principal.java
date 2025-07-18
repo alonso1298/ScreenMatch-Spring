@@ -1,5 +1,6 @@
 package com.aluracursos.screenmatch.principal;
 
+import com.aluracursos.screenmatch.model.Categoria;
 import com.aluracursos.screenmatch.model.DatosSerie;
 import com.aluracursos.screenmatch.model.DatosTemporadas;
 import com.aluracursos.screenmatch.model.Episodio;
@@ -36,6 +37,7 @@ public class Principal {
                     3 - Mostrar series buscadas
                     4 - Buscar series por titulo
                     5 - Top 5 Mejores series
+                    6 - Buscar series por categoria
                                   
                     0 - Salir
                     """;
@@ -58,6 +60,9 @@ public class Principal {
                     break;
                 case 5:
                     buscarTop5Series();
+                    break;
+                case 6:
+                    buscarSeriesPorCategoria();
                     break;
 
                 case 0:
@@ -136,6 +141,14 @@ public class Principal {
     private void buscarTop5Series() {
         List<Serie> topSeries = repositorio.findTop5ByOrderByEvaluacionDesc();
         topSeries.forEach(s -> System.out.println("Serie: " + s.getTitulo() + " Evaluacion: " + s.getEvaluacion() ));
+    }
+    private void buscarSeriesPorCategoria(){
+        System.out.println("Escribe la categoria de la serie que deseas buscar ");
+        String genero = teclado.nextLine();
+        Categoria categoria = Categoria.fromEspanol(genero);
+        List<Serie> seriesPorCategoria = repositorio.findByGenero(categoria);
+        System.out.println("Las series de la categoria : " + genero);
+        seriesPorCategoria.forEach(System.out::println);
     }
 }
 
