@@ -135,7 +135,7 @@ public class Principal {
     }
     private void buscarTop5Series() {
         List<Serie> topSeries = repositorio.findTop5ByOrderByEvaluacionDesc();
-        topSeries.forEach(s -> System.out.println("Serie: " + s.getTitulo() + "Evaluacion: " + s.getEvaluacion() ));
+        topSeries.forEach(s -> System.out.println("Serie: " + s.getTitulo() + " Evaluacion: " + s.getEvaluacion() ));
     }
 }
 
