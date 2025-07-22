@@ -159,7 +159,7 @@ public class Principal {
         Integer totalDeTemporadas = teclado.nextInt();
         System.out.println("¿Con que evaluacion apartir de cúal valor? ");
         Double evaluacion = teclado.nextDouble();
-        List<Serie> filtroSeries = repositorio.findByTotalTemporadasLessThanEqualAndEvaluacionGreaterThanEqual(totalDeTemporadas, evaluacion);
+        List<Serie> filtroSeries = repositorio.seriesPorTemporadaYEvaluacion(totalDeTemporadas, evaluacion);
         System.out.println("*** Series Filtradas ***");
         filtroSeries.forEach(s -> System.out.println(s.getTitulo() + " - evaluacion: " + s.getEvaluacion()));
     }
