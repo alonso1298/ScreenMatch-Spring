@@ -173,8 +173,8 @@ public class Principal {
         String nombreEpisodio = teclado.nextLine();
         List<Episodio> episodiosEncontrados = repositorio.episodiosPorNombre(nombreEpisodio);
         episodiosEncontrados.forEach(e -> 
-            System.out.printf("Serie: %s Temporada: %s Episodio: %s Evaluación: %s",
-                e.getSerie(), e.getTemporada(), e.getNumeroEpisodio(), e.getEvaluacion()));
+            System.out.printf("Serie: %s Temporada: %s Episodio: %s Evaluación: %s\n",
+                e.getSerie().getTitulo(), e.getTemporada(), e.getNumeroEpisodio(), e.getEvaluacion()));
     }
 }
 
