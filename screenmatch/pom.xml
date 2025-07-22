@@ -23,10 +23,14 @@
 
     <dependencies>
 
-        <!-- Dependencia principal de Spring Boot -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
         <!-- Dependencia para conectarse a bases de datos y usar JPA -->

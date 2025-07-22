@@ -10,7 +10,7 @@ import com.aluracursos.screenmatch.principal.Principal;
 import com.aluracursos.screenmatch.respository.SerieRepository;
 
 @SpringBootApplication
-public class ScreenmatchApplication implements CommandLineRunner{
+public class ScreenmatchApplicationConsola implements CommandLineRunner{
 
 	@Autowired
 	private SerieRepository repository;
