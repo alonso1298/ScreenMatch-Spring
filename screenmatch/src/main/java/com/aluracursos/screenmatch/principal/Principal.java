@@ -39,6 +39,7 @@ public class Principal {
                     5 - Top 5 Mejores series
                     6 - Buscar series por categoria
                     7 - Filtrar Series
+                    8 - Bus
                                   
                     0 - Salir
                     """;
