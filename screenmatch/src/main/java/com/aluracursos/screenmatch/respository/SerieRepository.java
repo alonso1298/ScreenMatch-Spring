@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import com.aluracursos.screenmatch.model.Categoria;
+import com.aluracursos.screenmatch.model.Episodio;
 import com.aluracursos.screenmatch.model.Serie;
 
 public interface SerieRepository extends JpaRepository<Serie, Long> {
@@ -19,5 +20,5 @@ public interface SerieRepository extends JpaRepository<Serie, Long> {
     List<Serie> seriesPorTemporadaYEvaluacion(int totalDeTemporadas, Double evaluacion);
 
     @Query("SELECT e FROM serie s JOIN s.episodios WHERE e.titulo ILIKE %:nombreEpisodio")
-    List<Serie> episodiosPorNombre(String nombreEpisodios);
+    List<Episodio> episodiosPorNombre(String nombreEpisodios);
 }
