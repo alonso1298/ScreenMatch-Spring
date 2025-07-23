@@ -7,17 +7,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.aluracursos.screenmatch.dto.SerieDTO;
+import com.aluracursos.screenmatch.model.Serie;
 import com.aluracursos.screenmatch.respository.SerieRepository;
 
 @Service
 public class SerieService {
     @Autowired
     private SerieRepository repository;
-    
+
     public List<SerieDTO> obtenerTodasLasSeries(){
-        return repository.findAll().stream()
+        return convierteDaDatos(repository.findAll());
+    }
+
+    public List<SerieDTO> obtenerTop5() {
+        return convierteDaDatos(repository.findTop5ByOrderByEvaluacionDesc());
+    }
+
+    public List<SerieDTO> convierteDaDatos(List<Serie> serie){
+        return serie.stream()
             .map(s -> new SerieDTO(s.getTitulo(), s.getTotalTemporadas(), s.getEvaluacion(), s.getPoster(),
                 s.getGenero(), s.getActores(), s.getSinopsis()))
             .collect(Collectors.toList());
-    }
+        }
 }
