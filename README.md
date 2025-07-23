@@ -71,7 +71,7 @@ GET /series/lanzamientos
 ```
 **Descripción**: Devuelve las series lanzadas más recientemente.
 
-###🔹 Obtener detalles de una serie por ID
+### 🔹 Obtener detalles de una serie por ID
 ```bash
 GET /series/{id}
 ```
