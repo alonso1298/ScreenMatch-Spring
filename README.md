@@ -46,6 +46,72 @@ cd ScreenMatch-Spring
 ``` bash
 ScreenMatchApplication.java
 ```
+## 📡 API Endpoints – ScreenMatch Backend
+Esta API permite consultar información sobre series, episodios, lanzamientos recientes y filtrado por categoría. La base de todas las rutas es:
+
+``` bash
+Base URL: http://localhost:8080/series
+```
+## 📋 Endpoints disponibles:
+### 🔹 Obtener todas las series
+```bash
+GET /series
+```
+**Descripción**: Devuelve la lista completa de series disponibles.
+
+### 🔹 Obtener el Top 5 de series mejor calificadas
+```bash
+GET /series/top5
+```
+**Descripción**: Devuelve las 5 series con mejor evaluación.
+
+### 🔹 Obtener lanzamientos recientes
+```bash
+GET /series/lanzamientos
+```
+**Descripción**: Devuelve las series lanzadas más recientemente.
+
+###🔹 Obtener detalles de una serie por ID
+```bash
+GET /series/{id}
+```
+**Parámetros**:
+
+- id: ID de la serie.
+
+**Descripción**: Devuelve los detalles de una serie específica.
+
+🔹 Obtener todas las temporadas y episodios de una serie
+```bash
+GET /series/{id}/temporadas/todas
+```
+**Parámetros**:
+
+- id: ID de la serie.
+
+**Descripción**: Lista todas las temporadas y episodios de una serie.
+
+### 🔹 Obtener los episodios de una temporada específica
+```bash
+GET /series/{id}/temporadas/{numeroTemporada}
+```
+**Parámetros**:
+
+- id: ID de la serie.
+
+**numeroTemporada**: Número de temporada deseado.
+
+**Descripción**: Devuelve los episodios de una temporada específica de una serie.
+
+### 🔹 Filtrar series por género
+```bash
+GET /series/categoria/{nombreGenero}
+```
+**Parámetros**:
+
+- nombreGenero: Nombre del género (por ejemplo: DRAMA, COMEDIA).
+
+**Descripción**: Devuelve una lista de series que pertenecen a la categoría indicada.
 
 ## 📚 Aprendizajes en este proyecto
 - Estructuración de un proyecto Spring Boot con MVC
