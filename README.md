@@ -53,6 +53,7 @@ Esta API permite consultar información sobre series, episodios, lanzamientos re
 Base URL: http://localhost:8080/series
 ```
 ## 📋 Endpoints disponibles:
+
 ### 🔹 Obtener todas las series
 ```bash
 GET /series
@@ -81,7 +82,7 @@ GET /series/{id}
 
 **Descripción**: Devuelve los detalles de una serie específica.
 
-🔹 Obtener todas las temporadas y episodios de una serie
+### 🔹 Obtener todas las temporadas y episodios de una serie
 ```bash
 GET /series/{id}/temporadas/todas
 ```
