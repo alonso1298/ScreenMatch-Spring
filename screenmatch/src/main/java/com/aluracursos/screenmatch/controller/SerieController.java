@@ -4,23 +4,30 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.aluracursos.screenmatch.dto.SerieDTO;
 import com.aluracursos.screenmatch.service.SerieService;
 
 @RestController
+@RequestMapping("/series") // Identifica que es la url base
 public class SerieController {
     @Autowired
     private SerieService servicio;
 
-    @GetMapping("/series")
+    @GetMapping()
     public List<SerieDTO> obtenerTodasLasSeries(){
         return servicio.obtenerTodasLasSeries();
     }
 
-    @GetMapping("/series/top5")
+    @GetMapping("/top5")
     public List<SerieDTO> obtenerTop5(){
         return servicio.obtenerTop5();
+    }
+
+    @GetMapping("/lanzamientos")
+    public List<SerieDTO> obtenerLanzamitosMasRecientes(){
+        return servicio.obtenerLanzamientosMasRecientes();
     }
 }
